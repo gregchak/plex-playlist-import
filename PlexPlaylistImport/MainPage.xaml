@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="App1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        
+
+        
+        <TextBlock Text="Playlist Import" HorizontalAlignment="Left" Margin="171,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TitleTextBlockStyle}"/>
+        <TextBox Name="Url" HorizontalAlignment="Left" PlaceholderText="http://localhost:32400/" Margin="44,133,0,0" Header="PLEX Server URL" InputScope="Url" TextWrapping="Wrap" VerticalAlignment="Top" Width="382"/>
+        <TextBox Name="PlaylistPath" HorizontalAlignment="Left" Margin="44,356,0,0" PlaceholderText="C:\plex\playlists\playlist.m3u" Header="Path to playlist file" TextWrapping="Wrap" VerticalAlignment="Top" Width="383"/>
+        <TextBox Name="Token" HorizontalAlignment="Left" Margin="44,210,0,0" Header="X-Plex-Token" TextWrapping="Wrap" VerticalAlignment="Top" Width="384"/>
+        <TextBlock HorizontalAlignment="Left" Margin="44,411,0,0" Text="Path is absolute path, relative to the server on which PLEX Media Server is running" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" FontSize="10"/>
+        <Button Name="SectionHelp"  VerticalAlignment="Top" Background="White" Click="SectionHelp_Click" Margin="109,304,0,0" UseSystemFocusVisuals="False" Padding="2,2,2,2" BorderThickness="0,0,0,0" >
+            <StackPanel/>
+        </Button>
+        <Button Name="PlexTokenHelp"  VerticalAlignment="Top" Background="White" Click="PlexTokenHelp_Click" Margin="429,231,0,0" UseSystemFocusVisuals="false" BorderThickness="0,0,0,0" Padding="2,2,2,2">
+            <StackPanel/>
+        </Button>
+        <RichTextBlock HorizontalAlignment="Left" Height="321" Margin="504,152,0,0" VerticalAlignment="Top" Width="352">
+            <Paragraph>
+                <Bold>To Get Section ID and X-Plex Token:</Bold>
+                <LineBreak/>
+            </Paragraph>
+            <Paragraph>
+                1. Open your
+                <Bold>Plex server web app</Bold> , as normal.
+                <LineBreak/>
+            </Paragraph>
+            <Paragraph>
+                2. In
+                <Bold>Plex</Bold> , navigate to any file in the library for which you want to import a playlist.(e.g. in your 'Rock Music' library, navigate to 'BornToBeWild.mp3').
+                <LineBreak/>
+            </Paragraph>
+            <Paragraph>
+                3. On the play bar for that library item, click the
+                <Bold>More Actions ellipses (...)</Bold> , select
+                <Bold>Get Info</Bold> , and then click View XML.
+            </Paragraph>
+            <Paragraph>
+                A new browser window opens containing XML details about the library item. From the URL, copy the
+                <Bold>X-Plex-Token</Bold> value into a text editor. From the page content, copy the
+                <Bold>librarySectionID</Bold> value into a text editor.
+            </Paragraph>
+        </RichTextBlock>
+        <TextBox x:Name="SectionId" HorizontalAlignment="Left" Margin="44,278,0,0" Header="Section ID" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+        <Image HorizontalAlignment="Left" Height="36" Margin="44,61,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Plex_vector_logo.png"/>
+        <Button Name="Import" Content="Import Playlist" Click="Import_Click" 
+                Margin="39,467,0,0" VerticalAlignment="Top">
+        </Button>
+    </Grid>
+</Page>
