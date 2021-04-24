@@ -37,14 +37,6 @@ namespace App1
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
-        private void SectionHelp_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void PlexTokenHelp_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
         private bool FormIsValid()
         {
             return true;
@@ -52,7 +44,10 @@ namespace App1
 
         private async void Import_Click(object sender, RoutedEventArgs e)
         {
+            result.Text = "";
             StringBuilder path = new StringBuilder();
+
+            // Add slash if not present in provided URL input
             if (Url.Text.Substring(Url.Text.Length - 1) == "/")
             {
                 path.Append(Url.Text);
@@ -62,6 +57,7 @@ namespace App1
                 path.Append($"{Url.Text}/");
             }
 
+            // Build path for playlist endpoint
             path.Append($"playlists/upload?sectionID={SectionId.Text}&path={PlaylistPath.Text}&X-Plex-Token={Token.Text}");
 
             System.Diagnostics.Debug.WriteLine(path.ToString(), "Path");
@@ -75,13 +71,29 @@ namespace App1
                 var responseString = await response.Content.ReadAsStringAsync();
 
                 // Write to debugger
-                System.Diagnostics.Debug.WriteLine(responseString, "Response");
+                System.Diagnostics.Debug.WriteLine(response, "Response");
+
+                switch (response.StatusCode)
+                {
+                    case System.Net.HttpStatusCode.OK:
+                        result.Text = "Command successfully sent to PLEX";
+                        break;
+                    default:
+                        result.Text = $"Unexpected result of request ({response.StatusCode})";
+                        break;
+                }
             }
             catch (Exception ex)
             {
+                result.Text = $"Errors occurred while processing request. {ex.Message}";
                 System.Diagnostics.Debug.WriteLine(ex.ToString(), "Exception");
             }
             
+        }
+
+        private void SectionId_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
         }
     }
 }
