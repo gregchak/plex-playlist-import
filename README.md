@@ -27,6 +27,12 @@ Its important to note that in a scenario in which you are running the PLEX Playl
 
 5. From the page content, copy the librarySectionID value into a text editor.
 
+
+# License
+GNU General Public License v3.0
+
+https://github.com/gregchak/plex-playlist-import/blob/main/LICENSE
+
 # Screenshot
 ![image](https://user-images.githubusercontent.com/5882933/116017209-fe3a8b00-a60c-11eb-8667-b39be11241e8.png)
 
