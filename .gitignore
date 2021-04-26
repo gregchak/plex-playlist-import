@@ -3,8 +3,7 @@
 ################################################################################
 
 /App1/obj
-/App1/bin/x86/Debug
-/PlexPlaylistImport/bin/x86/Debug
+/PlexPlaylistImport/bin
 /PlexPlaylistImport/obj
 /PlexPlaylistImport/AppPackages
 /PlexPlaylistImport/BundleArtifacts

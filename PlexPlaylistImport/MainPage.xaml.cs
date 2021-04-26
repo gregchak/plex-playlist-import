@@ -37,9 +37,20 @@ namespace App1
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
-        private bool FormIsValid()
+        private void FormIsValid(object sender, TextChangedEventArgs e)
         {
-            return true;
+            if (Url.Text.Length > 0
+                && Token.Text.Length > 0
+                && SectionId.Text.Length > 0
+                && PlaylistPath.Text.Length > 0)
+            {
+                Import.IsEnabled = true;
+            }
+            else
+            {
+                Import.IsEnabled = false;
+            }
+                
         }
 
         private async void Import_Click(object sender, RoutedEventArgs e)
@@ -94,6 +105,11 @@ namespace App1
         private void SectionId_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
         {
             args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
+        }
+
+        private void Url_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
