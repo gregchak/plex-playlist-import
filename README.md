@@ -5,7 +5,7 @@ This is an application written to help PLEX Media Server (PMS) owners import pla
 Currently PMS does not have an GUI for importing playlists. However, there are exposed endpoints that can be utilized for this purpose.
 
 # Installation
-Currently the release is not signed with a certficate.  This is one of the reasons why its not currently on Microsoft Store.  In order to install you need to run the powershell script.
+Currently the release is not signed with a certficate.  This is one of the reasons why its not currently on Microsoft Store.  In order to install you need to run the powershell script `Install.ps1`.
 
 # Usage
 This tool is quite simple in execution.  The most important thing is getting the correct information to fill into the form.  There are instructions in the app for getting Section ID and X-Plex Token and is also noted below.  
