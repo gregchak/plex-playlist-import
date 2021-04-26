@@ -8,7 +8,8 @@
 /PlexPlaylistImport/AppPackages
 /PlexPlaylistImport/BundleArtifacts
 /PlexPlaylistImport/*.pfx
+/*.user
+/*.suo
 /.vs
 /*.cer
 /*.p7b
-
