@@ -17,6 +17,9 @@ In addition to making sure the Path to playlist file is correct, the path to the
 Its important to note that in a scenario in which you are running the PLEX Playlist Import tool from a computer that is NOT your PMS, the above mentioned paths are NOT relative to the computer this tool is running on, but rather relative to the computer your on which your PMS is hosted.
 
 **To Get Section ID and X-Plex Token:**
+
+Taken from reddit 
+https://www.reddit.com/r/PleX/comments/ecirqa/how_to_manually_import_an_m3u_playlist_into_plex/
 1. Open your Plex server web app , as normal.
 
 2. In Plex , navigate to any file in the library for which you want to import a playlist. (e.g. in your 'Rock Music' library, navigate to 'BornToBeWild.mp3').
