@@ -30,12 +30,16 @@ https://www.reddit.com/r/PleX/comments/ecirqa/how_to_manually_import_an_m3u_play
 
 5. From the page content, copy the librarySectionID value into a text editor.
 
+# Screenshot
+![image](https://user-images.githubusercontent.com/5882933/116017209-fe3a8b00-a60c-11eb-8667-b39be11241e8.png)
+
+# Version History
+
+**1.0.4.0** - 2021-04-25
+Initial release
 
 # License
 GNU General Public License v3.0
 
 https://github.com/gregchak/plex-playlist-import/blob/main/LICENSE
-
-# Screenshot
-![image](https://user-images.githubusercontent.com/5882933/116017209-fe3a8b00-a60c-11eb-8667-b39be11241e8.png)
 
