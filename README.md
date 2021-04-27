@@ -35,6 +35,7 @@ https://www.reddit.com/r/PleX/comments/ecirqa/how_to_manually_import_an_m3u_play
 
 # Version History
 
+
 **1.0.4.0** - 2021-04-25
 Initial release
 
