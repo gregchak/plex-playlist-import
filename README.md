@@ -14,7 +14,7 @@ The "Path to playlist file" is very important to understand.  This path is an ab
 
 In addition to making sure the Path to playlist file is correct, the path to the music files in your `.m3u` file need to be setup the same way.  
 
-Its important to note that in a scenario in which you are running the PLEX Playlist Import tool from a computer that is NOT your PMS, the above mentioned paths are NOT relative to the computer this tool is running on, but rather relative to the computer your on which your PMS is hosted.
+**Its important to note that in a scenario in which you are running the PLEX Playlist Import tool from a computer that is NOT your PMS, the above mentioned paths are NOT relative to the computer this tool is running on, but rather relative to the computer your on which your PMS is hosted.**
 
 **To Get Section ID and X-Plex Token:**
 
