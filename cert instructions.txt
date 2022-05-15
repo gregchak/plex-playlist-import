@@ -1,0 +1,9 @@
+New-SelfSignedCertificate -Type Custom -Subject "CN=ChakFrost, C=US" -KeyUsage DigitalSignature -FriendlyName "ChakFrost.PlexPlaylistImport" -CertStoreLocation "Cert:\CurrentUser\My" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
+
+$password = ConvertTo-SecureString -String ytHbLqrxA5MLFX -Force -AsPlainText 
+Export-PfxCertificate -cert "Cert:\CurrentUser\My\EE7E48A6022B5D76213CB96BE519C54F0EC6096F" -FilePath <FilePath>.pfx -Password $password
+
+
+Export-PfxCertificate -cert "Cert:\CurrentUser\My\EE7E48A6022B5D76213CB96BE519C54F0EC6096F" -FilePath "M:\Users\Leon\My Documents\Visual Studio Projects\plex-playlist-import\PlexPlaylistImport\PlexPlaylistImport.pfx" -Password $password
+
+EE7E48A6022B5D76213CB96BE519C54F0EC6096F

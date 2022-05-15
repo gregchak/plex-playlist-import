@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using PlexPlaylistImport;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,6 +30,9 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private FormModel formModel;
+
+        private readonly string PREVIOUS_INPUT_NAME = Path.Combine(ApplicationData.Current.LocalFolder.Path, "previousInput.json");
         private static readonly HttpClient client = new HttpClient();
 
         public MainPage()
@@ -35,6 +42,7 @@ namespace App1
             //ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(1000, 1000));
             ApplicationView.PreferredLaunchViewSize = new Size(900, 650);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            GetPreviousInputs();
         }
 
         private void FormIsValid(object sender, TextChangedEventArgs e)
@@ -55,6 +63,8 @@ namespace App1
 
         private async void Import_Click(object sender, RoutedEventArgs e)
         {
+            SetPreviousInputs();
+
             result.Text = "";
             StringBuilder path = new StringBuilder();
 
@@ -91,6 +101,7 @@ namespace App1
                         break;
                     default:
                         result.Text = $"Unexpected result of request ({response.StatusCode})";
+                        Logger.Error($"Errors occurred while processing request. {response.StatusCode}\n{response.RequestMessage.RequestUri.AbsoluteUri}");
                         break;
                 }
             }
@@ -98,8 +109,63 @@ namespace App1
             {
                 result.Text = $"Errors occurred while processing request. {ex.Message}";
                 System.Diagnostics.Debug.WriteLine(ex.ToString(), "Exception");
+                Logger.Error($"Errors occurred while processing request. {ex}");
             }
             
+        }
+
+        private void GetPreviousInputs()
+        {
+            if (File.Exists(PREVIOUS_INPUT_NAME))
+            {
+                try
+                {
+                    string fromFile = File.ReadAllText(PREVIOUS_INPUT_NAME);
+                    formModel = JsonConvert.DeserializeObject<FormModel>(fromFile);
+
+                    Url.Text = formModel.Url;
+                    Token.Text = formModel.Token;
+                    SectionId.Text = formModel.SectionId.ToString();
+                    PlaylistPath.Text = formModel.Path;
+                }
+                catch(Exception ex)
+                {
+                    Logger.Error($"Errors occurred while getting previous inputs. {ex}");
+                }
+            }
+            else
+            {
+                formModel = new FormModel();
+            }
+        }
+
+        private void SetPreviousInputs()
+        {
+            if (Url.Text.Substring(Url.Text.Length - 1) == "/")
+            {
+                formModel.Url = Url.Text;
+            }
+            else
+            {
+                formModel.Url = $"{Url.Text}/";
+            }
+            formModel.Token = Token.Text;
+            formModel.SectionId = Convert.ToByte(SectionId.Text);
+            formModel.Path = PlaylistPath.Text; ;
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(PREVIOUS_INPUT_NAME,false))
+                {
+                    string content = JsonConvert.SerializeObject(formModel);
+                    sw.Write(content);
+                    sw.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                Logger.Error($"Errors occurred while writing previous inputs. {ex}");
+            }
         }
 
         private void SectionId_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)

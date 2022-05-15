@@ -37,7 +37,7 @@
                          TextWrapping="NoWrap" VerticalAlignment="Top" Width="383" TextChanged="FormIsValid"/>
                 <TextBlock x:Name="PathHelp" HorizontalAlignment="Left" Margin="0,5,0,00" 
                            TextWrapping="Wrap" Width="376" FontSize="10">
-                    NOTE: The path is an absolute pate that exists on your PMS
+                    NOTE: The path is an absolute path that exists on your PMS
                 </TextBlock>
             </StackPanel>
             <StackPanel x:Name="Associate" Margin="20" RelativePanel.RightOf="ImportConfig" 

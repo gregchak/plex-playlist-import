@@ -7,9 +7,9 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="7509837b-cb9d-4454-8433-468b3c8116a3"
+    Name="ChakFrost.PlexPlaylistImport"
     Publisher="CN=ChakFrost"
-    Version="1.0.4.0" />
+    Version="1.1.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="7509837b-cb9d-4454-8433-468b3c8116a3" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
