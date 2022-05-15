@@ -5,7 +5,7 @@ This is an application written to help PLEX Media Server (PMS) owners import pla
 Currently PMS does not have an GUI for importing playlists. However, there are exposed endpoints that can be utilized for this purpose.
 
 # Installation
-Currently the release is not signed with a certficate.  This is one of the reasons why its not currently on Microsoft Store.  In order to install you need to run the powershell script `Install.ps1`.
+Currently the release is not signed with a certficate.  This is one of the reasons why its not currently on Microsoft Store.  In order to install you need to run the powershell script `Install.ps1`.  You may be asked to install a certificate during the installation process.  This is a development/testing certificate.
 
 # Usage
 This tool is quite simple in execution.  The most important thing is getting the correct information to fill into the form.  There are instructions in the app for getting Section ID and X-Plex Token and is also noted below.  
@@ -14,9 +14,12 @@ The "Path to playlist file" is very important to understand.  This path is an ab
 
 In addition to making sure the Path to playlist file is correct, the path to the music files in your `.m3u` file need to be setup the same way.  
 
-Its important to note that in a scenario in which you are running the PLEX Playlist Import tool from a computer that is NOT your PMS, the above mentioned paths are NOT relative to the computer this tool is running on, but rather relative to the computer your on which your PMS is hosted.
+**Its important to note that in a scenario in which you are running the PLEX Playlist Import tool from a computer that is NOT your PMS, the above mentioned paths are NOT relative to the computer this tool is running on, but rather relative to the computer your on which your PMS is hosted.**
 
 **To Get Section ID and X-Plex Token:**
+
+Taken from reddit 
+https://www.reddit.com/r/PleX/comments/ecirqa/how_to_manually_import_an_m3u_playlist_into_plex/
 1. Open your Plex server web app , as normal.
 
 2. In Plex , navigate to any file in the library for which you want to import a playlist. (e.g. in your 'Rock Music' library, navigate to 'BornToBeWild.mp3').
@@ -29,4 +32,14 @@ Its important to note that in a scenario in which you are running the PLEX Playl
 
 # Screenshot
 ![image](https://user-images.githubusercontent.com/5882933/116017209-fe3a8b00-a60c-11eb-8667-b39be11241e8.png)
+
+# Version History
+
+**1.0.4.0** - 2021-04-25  
+Initial release.
+
+# License
+GNU General Public License v3.0
+
+https://github.com/gregchak/plex-playlist-import/blob/main/LICENSE
 
