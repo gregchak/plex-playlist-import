@@ -35,6 +35,9 @@ https://www.reddit.com/r/PleX/comments/ecirqa/how_to_manually_import_an_m3u_play
 
 # Version History
 
+**1.1.1.0** - 2023-11-01
+- Updated certificate.  This is also the first build from VS2022
+
 **1.1.0.0** - 2022-05-17  
 - Added detailed logging; Issue #6
 - Added ability to save infomation in form to be loaded when application is started; Issue #4
